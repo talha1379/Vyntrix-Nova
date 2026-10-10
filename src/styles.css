@@ -1929,3 +1929,435 @@ summary:focus-visible {
     cursor: none;
   }
 }
+
+/* =========================================================
+   VYNTRIXNOVA — MIDNIGHT TECH THEME
+   Preserves existing animations and motion timings
+   ========================================================= */
+
+/* 1. MIDNIGHT COLOR SYSTEM */
+
+:root {
+  --background: oklch(0.13 0.025 255);
+  --background-elevated: oklch(0.17 0.03 255);
+
+  --foreground: oklch(0.96 0.012 230);
+  --foreground-secondary: oklch(0.78 0.025 235);
+  --foreground-muted: oklch(0.64 0.025 240);
+  --foreground-disabled: oklch(0.46 0.02 245);
+  --foreground-inverse: oklch(0.12 0.025 255);
+
+  /* Dark glass surfaces */
+  --surface: oklch(0.19 0.035 255 / 0.78);
+  --surface-elevated: oklch(0.21 0.04 250 / 0.92);
+  --surface-interactive: oklch(0.23 0.045 250 / 0.88);
+  --surface-highlighted: oklch(0.26 0.055 245 / 0.95);
+  --surface-subtle: oklch(0.17 0.03 255 / 0.8);
+
+  --card: oklch(0.18 0.035 255 / 0.88);
+  --card-foreground: oklch(0.96 0.012 230);
+
+  --popover: oklch(0.18 0.035 255);
+  --popover-foreground: oklch(0.96 0.012 230);
+
+  /* Electric blue primary */
+  --primary: oklch(0.68 0.22 255);
+  --primary-foreground: oklch(0.99 0.005 230);
+  --primary-hover: oklch(0.74 0.19 225);
+  --primary-active: oklch(0.59 0.21 255);
+  --primary-glow: oklch(0.68 0.22 255 / 0.28);
+
+  /* Dark secondary */
+  --secondary: oklch(0.23 0.04 255);
+  --secondary-foreground: oklch(0.96 0.012 230);
+
+  --muted: oklch(0.22 0.035 255);
+  --muted-foreground: oklch(0.72 0.025 235);
+
+  /* Cyan accent */
+  --accent: oklch(0.82 0.15 205);
+  --accent-foreground: oklch(0.12 0.025 255);
+  --accent-subtle: oklch(0.75 0.15 215 / 0.12);
+
+  /* Borders and inputs */
+  --border-subtle: oklch(0.32 0.045 250 / 0.45);
+  --border: oklch(0.38 0.055 250 / 0.62);
+  --border-strong: oklch(0.49 0.09 245 / 0.8);
+  --border-focus: oklch(0.75 0.15 215);
+
+  --input: oklch(0.16 0.03 255);
+  --ring: oklch(0.72 0.18 225);
+
+  /* Dashboard and chart colors */
+  --chart-1: oklch(0.68 0.22 255);
+  --chart-2: oklch(0.82 0.15 205);
+  --chart-3: oklch(0.72 0.16 170);
+  --chart-4: oklch(0.72 0.16 290);
+  --chart-5: oklch(0.78 0.16 80);
+
+  /* Sidebar */
+  --sidebar: oklch(0.15 0.03 255);
+  --sidebar-foreground: oklch(0.94 0.015 230);
+  --sidebar-primary: oklch(0.68 0.22 255);
+  --sidebar-primary-foreground: oklch(0.99 0.005 230);
+  --sidebar-accent: oklch(0.82 0.15 205);
+  --sidebar-accent-foreground: oklch(0.12 0.025 255);
+  --sidebar-border: oklch(0.32 0.045 250 / 0.6);
+  --sidebar-ring: oklch(0.72 0.18 225);
+
+  /* Premium gradients */
+  --gradient-primary: linear-gradient(
+    135deg,
+    oklch(0.62 0.23 255),
+    oklch(0.72 0.19 230),
+    oklch(0.82 0.15 205)
+  );
+
+  --gradient-brand: var(--gradient-primary);
+
+  --gradient-brand-wash: linear-gradient(
+    135deg,
+    oklch(0.68 0.22 255 / 0.14),
+    oklch(0.82 0.15 205 / 0.045),
+    transparent 75%
+  );
+
+  --gradient-blue-wash: linear-gradient(160deg, oklch(0.68 0.22 255 / 0.1), transparent 65%);
+
+  --gradient-cyan-wash: linear-gradient(170deg, oklch(0.82 0.15 205 / 0.09), transparent 65%);
+
+  --gradient-surface: linear-gradient(
+    145deg,
+    oklch(0.24 0.045 255 / 0.75),
+    oklch(0.16 0.03 255 / 0.82)
+  );
+
+  --gradient-hero: linear-gradient(
+    125deg,
+    oklch(0.16 0.04 255),
+    oklch(0.13 0.025 255) 52%,
+    oklch(0.17 0.045 220)
+  );
+
+  --gradient-radial-primary: radial-gradient(
+    circle at center,
+    oklch(0.65 0.23 255 / 0.2),
+    transparent 70%
+  );
+
+  --gradient-radial-cyan: radial-gradient(
+    circle at center,
+    oklch(0.82 0.15 205 / 0.16),
+    transparent 65%
+  );
+
+  --gradient-radial-blue: radial-gradient(
+    circle at center,
+    oklch(0.6 0.22 255 / 0.14),
+    transparent 68%
+  );
+
+  --gradient-radial-neutral: radial-gradient(
+    circle at center,
+    oklch(0.35 0.025 250 / 0.12),
+    transparent 65%
+  );
+
+  /* Depth and glow */
+  --shadow-subtle: 0 2px 10px oklch(0.04 0.02 255 / 0.24);
+
+  --shadow-elevated: 0 8px 28px oklch(0.04 0.02 255 / 0.36);
+
+  --shadow-floating: 0 18px 55px oklch(0.04 0.02 255 / 0.48);
+
+  --shadow-brand-glow: 0 0 28px oklch(0.68 0.22 255 / 0.18), 0 0 60px oklch(0.82 0.15 205 / 0.07);
+
+  --shadow-glow: 0 0 22px oklch(0.68 0.22 255 / 0.17), 0 0 45px oklch(0.82 0.15 205 / 0.08);
+}
+
+/* 2. GLOBAL BACKGROUND */
+
+html {
+  color-scheme: dark;
+  background: var(--background);
+}
+
+body {
+  background-color: var(--background);
+  background-image:
+    radial-gradient(ellipse at 12% 0%, oklch(0.3 0.1 255 / 0.22), transparent 38%),
+    radial-gradient(ellipse at 88% 18%, oklch(0.3 0.09 210 / 0.13), transparent 34%);
+
+  background-attachment: fixed;
+  color: var(--foreground);
+}
+
+/* Keep readable colors across common text elements */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--foreground);
+}
+
+p {
+  color: inherit;
+}
+
+::selection {
+  color: oklch(0.99 0.005 230);
+  background: oklch(0.55 0.2 255 / 0.65);
+}
+
+/* 3. GLASS CARDS AND PANELS */
+
+.surface-panel,
+.surface-elevated,
+.surface-interactive {
+  background-color: var(--surface);
+  background-image: linear-gradient(
+    145deg,
+    oklch(0.75 0.12 235 / 0.07),
+    transparent 48%,
+    oklch(0.6 0.16 255 / 0.035)
+  );
+
+  border-color: var(--border);
+  box-shadow:
+    inset 0 1px 0 oklch(0.95 0.02 230 / 0.045),
+    0 8px 30px oklch(0.04 0.02 255 / 0.16);
+
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+}
+
+.surface-background-level-0 {
+  background-color: var(--background);
+}
+
+.surface-background-level-1 {
+  background-color: var(--background-elevated);
+  background-image: var(--gradient-blue-wash);
+}
+
+.surface-background-level-2 {
+  background-color: var(--surface);
+  background-image: var(--gradient-surface);
+  border-color: var(--border-subtle);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+
+.surface-section {
+  background-color: oklch(0.14 0.03 255 / 0.8);
+  background-image: var(--gradient-blue-wash);
+  border-color: var(--border-subtle);
+}
+
+/* Card hover: preserve existing transition timings */
+
+article:hover,
+.surface-panel:hover,
+.surface-elevated:hover,
+.surface-interactive:hover {
+  border-color: color-mix(in oklab, var(--accent) 42%, var(--border));
+
+  box-shadow:
+    0 16px 45px oklch(0.04 0.02 255 / 0.35),
+    0 0 24px oklch(0.68 0.22 255 / 0.12),
+    0 0 42px oklch(0.82 0.15 205 / 0.06);
+}
+
+/* 4. PREMIUM BLUE-CYAN BUTTONS */
+
+.premium-button {
+  color: var(--primary-foreground);
+  background: var(--gradient-primary);
+  border: 1px solid oklch(0.82 0.15 215 / 0.35);
+
+  box-shadow:
+    0 5px 18px oklch(0.55 0.22 255 / 0.2),
+    inset 0 1px 0 oklch(0.98 0.01 230 / 0.18);
+}
+
+.premium-button:hover {
+  box-shadow:
+    0 10px 28px oklch(0.55 0.22 255 / 0.28),
+    0 0 25px oklch(0.82 0.15 205 / 0.18);
+
+  filter: brightness(1.08);
+}
+
+/* Primary and secondary semantic buttons */
+
+button.bg-primary,
+a.bg-primary {
+  background-image: var(--gradient-primary);
+  border-color: oklch(0.82 0.15 215 / 0.28);
+}
+
+button.bg-primary:hover,
+a.bg-primary:hover {
+  box-shadow: var(--shadow-brand-glow);
+}
+
+/* 5. GRADIENT TEXT AND LINKS */
+
+.text-gradient {
+  background-image: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+details summary:hover,
+details[open] summary {
+  color: var(--accent);
+}
+
+/* 6. BORDERS, FOCUS AND DECORATIVE DETAILS */
+
+.border-subtle-glow {
+  border-color: var(--border-subtle);
+  box-shadow: inset 0 0 18px -8px oklch(0.68 0.22 255 / 0.22);
+}
+
+.border-brand {
+  border-color: color-mix(in oklab, var(--primary) 65%, var(--border));
+}
+
+.corner-accent::before {
+  border-color: oklch(0.82 0.15 205 / 0.65);
+}
+
+.corner-accent:hover::before {
+  border-color: var(--accent);
+}
+
+.accent-line {
+  border-left-color: var(--accent);
+}
+
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline-color: var(--accent);
+}
+
+/* 7. GRID AND ATMOSPHERIC BACKDROPS */
+
+.grid-backdrop,
+.grid-standard,
+.grid-hero,
+.grid-faded,
+.grid-edge {
+  background-image:
+    linear-gradient(oklch(0.68 0.22 255 / 0.075) 1px, transparent 1px),
+    linear-gradient(90deg, oklch(0.68 0.22 255 / 0.075) 1px, transparent 1px);
+
+  background-size: 64px 64px;
+  background-position: center top;
+
+  mask-image: linear-gradient(to bottom, black 0%, black 45%, transparent 100%);
+
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, black 45%, transparent 100%);
+}
+
+.grid-subtle {
+  background-image:
+    linear-gradient(oklch(0.68 0.22 255 / 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, oklch(0.68 0.22 255 / 0.045) 1px, transparent 1px);
+
+  background-size: 64px 64px;
+}
+
+.radial-wash-primary {
+  background-image: var(--gradient-radial-primary);
+  pointer-events: none;
+}
+
+.radial-wash-cyan {
+  background-image: var(--gradient-radial-cyan);
+  pointer-events: none;
+}
+
+.radial-wash-blue {
+  background-image: var(--gradient-radial-blue);
+  pointer-events: none;
+}
+
+.radial-wash-neutral {
+  background-image: var(--gradient-radial-neutral);
+  pointer-events: none;
+}
+
+/* 8. CUSTOM CURSOR — BLUE TO CYAN */
+
+.custom-cursor-dot {
+  background: var(--primary);
+
+  box-shadow:
+    0 0 10px oklch(0.68 0.22 255 / 0.65),
+    0 0 24px oklch(0.82 0.15 205 / 0.28);
+}
+
+.custom-cursor-ring {
+  border-color: oklch(0.68 0.22 255 / 0.65);
+  box-shadow: 0 0 20px oklch(0.68 0.22 255 / 0.12);
+}
+
+.custom-cursor-ring.is-hovering {
+  border-color: var(--accent);
+
+  box-shadow:
+    0 0 25px oklch(0.82 0.15 205 / 0.2),
+    inset 0 0 15px oklch(0.82 0.15 205 / 0.07);
+}
+
+.custom-cursor-ring.is-clicking {
+  border-color: var(--accent);
+}
+
+/* 9. FORM FIELDS */
+
+input,
+textarea,
+select {
+  border-color: var(--border);
+}
+
+input:not([type="checkbox"]):not([type="radio"]),
+textarea,
+select {
+  background-color: var(--input);
+  color: var(--foreground);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--foreground-muted);
+}
+
+/* 10. MOBILE SAFETY */
+
+@media (max-width: 768px) {
+  body {
+    background-attachment: scroll;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
